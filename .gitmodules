@@ -1,0 +1,9 @@
+[submodule "libs/minhook"]
+	path = libs/minhook
+	url = https://github.com/TsudaKageyu/minhook
+[submodule "libs/cocos-headers"]
+	path = libs/cocos-headers
+	url = https://github.com/HJfod/cocos-headers
+[submodule "libs/gd.h"]
+	path = libs/gd.h
+	url = https://github.com/HJFod/gd.h
