@@ -6,6 +6,10 @@
 #include <cocos2d.h>
 #include <MinHook.h>
 
+#include <iostream>
+#include <string>
+#include <fstream>
+
 using std::uintptr_t;
 
 // pretty everything in cocos2d starts with CC, so there is a low chance of collisions
