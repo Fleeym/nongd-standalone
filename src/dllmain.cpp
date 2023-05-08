@@ -1,7 +1,6 @@
 #include "includes.hpp"
 #include "CustomSongWidget.hpp"
 
-#include "JsonManager.hpp"
 #include "Nongd.hpp"
 
 DWORD WINAPI thread_func(void* hModule) {
@@ -36,14 +35,9 @@ DWORD WINAPI thread_func(void* hModule) {
     FreeLibraryAndExitThread(reinterpret_cast<HMODULE>(hModule), 0);
 
     auto nongd = Nongd::sharedInstance();
-    auto jsonManager = JsonManager::sharedInstance();
 
     if (nongd) {
         delete nongd;
-    }
-
-    if (jsonManager) {
-        delete jsonManager;
     }
 
     return 0;

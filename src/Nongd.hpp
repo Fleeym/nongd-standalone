@@ -37,6 +37,14 @@ public:
      * @param songID the id of the song
      * @return the data from the JSON
     */
-    // NongData getNongs(int songID);
+    NongData getNongs(int songID);
+
+    void createDefaultSongIfNull(SongInfo const& song, int songID);
+
+    void saveNongs(NongData const& data, int songID);
+
+    std::vector<SongInfo> validateNongs(int songID);
+
+    std::string getFormattedSize(SongInfo const& song);
 };
     

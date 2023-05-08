@@ -7,3 +7,6 @@
 [submodule "libs/gd.h"]
 	path = libs/gd.h
 	url = https://github.com/HJFod/gd.h
+[submodule "libs/mat-json"]
+	path = libs/mat-json
+	url = https://github.com/geode-sdk/json

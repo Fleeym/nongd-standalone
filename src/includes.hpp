@@ -5,6 +5,7 @@
 #include <gd.h>
 #include <cocos2d.h>
 #include <MinHook.h>
+#include <json.hpp>
 
 #include <iostream>
 #include <string>

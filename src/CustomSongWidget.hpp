@@ -1,6 +1,8 @@
 #pragma once
 
+#include "Nongd.hpp"
 #include "includes.hpp"
+#include "NongdLayer.hpp"
 
 inline bool(__thiscall* CustomSongWidget_initO)(
     gd::CustomSongWidget*,
