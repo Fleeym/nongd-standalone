@@ -1,6 +1,9 @@
 #include "includes.hpp"
 #include "CustomSongWidget.hpp"
 
+#include "JsonManager.hpp"
+#include "Nongd.hpp"
+
 DWORD WINAPI thread_func(void* hModule) {
     AllocConsole();
     freopen_s(reinterpret_cast<FILE**>(stdout), "CONOUT$", "w", stdout);
@@ -10,7 +13,6 @@ DWORD WINAPI thread_func(void* hModule) {
     std::cin.rdbuf(conin.rdbuf());
 
     MH_Initialize();
-    std::cout << "hook time!";
     MH_CreateHook(
         reinterpret_cast<void*>(gd::base + 0x685B0),
         reinterpret_cast<void*>(CustomSongWidget_initH),
@@ -32,6 +34,17 @@ DWORD WINAPI thread_func(void* hModule) {
     conin.close();
     FreeConsole();
     FreeLibraryAndExitThread(reinterpret_cast<HMODULE>(hModule), 0);
+
+    auto nongd = Nongd::sharedInstance();
+    auto jsonManager = JsonManager::sharedInstance();
+
+    if (nongd) {
+        delete nongd;
+    }
+
+    if (jsonManager) {
+        delete jsonManager;
+    }
 
     return 0;
 }

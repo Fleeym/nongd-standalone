@@ -5,6 +5,8 @@ project(nongd)
 
 add_subdirectory(libs/minhook)
 add_subdirectory(libs/cocos-headers)
+add_subdirectory(libs/json)
+
 file(GLOB_RECURSE SRC_FILES src/*.cpp)
 
 add_library(${PROJECT_NAME} SHARED ${SRC_FILES})
@@ -25,6 +27,7 @@ target_include_directories(${PROJECT_NAME} PRIVATE
     libs/minhook/include
     libs/gd.h/include
     libs/gd.h/
+    libs/json/include/nlohmann
 )
 
-target_link_libraries(${PROJECT_NAME} minhook cocos2d)
+target_link_libraries(${PROJECT_NAME} minhook cocos2d nlohmann_json::nlohmann_json)

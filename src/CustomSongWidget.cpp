@@ -1,7 +1,10 @@
 #include "CustomSongWidget.hpp"
 
-namespace nongd {
+namespace nong {
     bool firstRun = false;
+    CCLabelBMFont* songNameLabel_O = nullptr;
+    CCLabelBMFont* idAndSizeLabel_O = nullptr;
+    CCLabelBMFont* idAndSizeLabel = nullptr;
 }
 
 bool __fastcall CustomSongWidget_initH(
@@ -27,8 +30,19 @@ bool __fastcall CustomSongWidget_initH(
 
     auto *songNameLabel = static_cast<CCLabelBMFont*>(self->getChildren()->objectAtIndex(2));
     songNameLabel->setVisible(false);
+    nong::songNameLabel_O = songNameLabel;
+    nong::firstRun = false;
 
-    nongd::firstRun = false;
+    auto idAndSizeLabel = static_cast<CCLabelBMFont*>(self->getChildren()->objectAtIndex(4));
+    idAndSizeLabel->setVisible(false);
+    nong::idAndSizeLabel_O = idAndSizeLabel;
+
+    auto newLabel = CCLabelBMFont::create("new", "bigFont.fnt");
+    newLabel->setPosition(ccp(0.f, -32.f));
+    newLabel->setScale(0.4f);
+    self->addChild(newLabel);
+    nong::idAndSizeLabel = newLabel;
+
     return true;
 }
 

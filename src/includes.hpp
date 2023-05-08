@@ -9,6 +9,10 @@
 #include <iostream>
 #include <string>
 #include <fstream>
+#include <filesystem>
+#include <vector>
+
+namespace fs = std::filesystem;
 
 using std::uintptr_t;
 
