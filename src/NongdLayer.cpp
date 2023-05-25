@@ -18,6 +18,7 @@ void NongdLayer::addSongNameLabel(std::string const& title, int songID) {
 
     auto label = CCLabelBMFont::create(title.c_str(), "bigFont.fnt");
     label->limitLabelWidth(220.f, 0.8f, 0.1f);
+    label->setColor(ccc3(255, 208, 208));
     auto songNameMenuLabel = gd::CCMenuItemSpriteExtra::create(
         label,
         this,
@@ -40,7 +41,7 @@ void NongdLayer::addSongNameLabel(std::string const& title, int songID) {
 }
 
 void NongdLayer::openNongdPopup(CCObject* target) {
-
+    NongdPopup::create(target->getTag(), this->m_customSongWidget)->show();
 }
 
 void NongdLayer::updateIDAndSizeLabel(SongInfo const& song, int songID) {
@@ -49,7 +50,7 @@ void NongdLayer::updateIDAndSizeLabel(SongInfo const& song, int songID) {
     if (!fs::exists(song.path) && song.path == defaultPath) {
         m_idAndSizeLabel->setVisible(false);
         m_idAndSizeLabel_O->setVisible(true);
-    } else if (m_idAndSizeLabel_O && m_idAndSizeLabel_O->isVisible()) {
+    } else if (m_idAndSizeLabel_O && m_idAndSizeLabel_O->isVisible()) { 
         m_idAndSizeLabel_O->setVisible(false);
         m_idAndSizeLabel->setVisible(true);
     }

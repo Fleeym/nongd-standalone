@@ -3,6 +3,7 @@
 #include "includes.hpp"
 #include "types/SongInfo.hpp"
 #include "Nongd.hpp"
+#include "NongdPopup.hpp"
 
 class NongdLayer : public CCLayer {
 public:
